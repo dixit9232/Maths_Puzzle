@@ -269,6 +269,7 @@ class _puzzleState extends State<puzzle> {
                                             MathsPuzzle.prefs!
                                                 .setInt("lvl", widget.index);
                                           }
+
                                           t1.text = "";
                                         } else {
                                           ScaffoldMessenger.of(context)

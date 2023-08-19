@@ -43,6 +43,7 @@ class _winpageState extends State<winpage> {
                         fontStyle: FontStyle.italic),
                   ),
                 ],
+
               ),
               Expanded(
                 child: Row(
