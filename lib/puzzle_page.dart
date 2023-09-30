@@ -270,12 +270,12 @@ class _puzzleState extends State<puzzle> {
                                                         width: 5,
                                                         color: Colors.white))
                                                 : null),
-                                        onPressed: () {
+                                 onPressed: () {
                                           if (t1.text ==
                                               Data.Ans[widget.index]) {
-                                            MathsPuzzle.prefs!.setString(
-                                                "lvl${widget.index}", "yes");
                                             if (widget.index1 == null) {
+                                              MathsPuzzle.prefs!.setString(
+                                                  "lvl${widget.index}", "yes");
                                               widget.index++;
                                               MathsPuzzle.prefs!
                                                   .setInt("lvl", widget.index);
@@ -286,11 +286,26 @@ class _puzzleState extends State<puzzle> {
                                                 },
                                               ));
                                             } else {
+                                              if(MathsPuzzle.prefs!
+                                                  .getString("lvl${widget.index}")=="skip"){
+                                                MathsPuzzle.prefs!.setString(
+                                                    "lvl${widget.index}", "yes");
+                                                widget.index++;
+                                              }
+                                              else if(MathsPuzzle.prefs!.getString("lvl${widget.index}")=="No"){
+                                                MathsPuzzle.prefs!.setString(
+                                                    "lvl${widget.index}", "yes");
+                                                widget.index++;
+                                                MathsPuzzle.prefs!.setInt("lvl", widget.index);
+                                              }
+                                              else{
+                                                widget.index++;
+                                              }
                                               Navigator.push(context,
                                                   MaterialPageRoute(
                                                 builder: (context) {
                                                   return winpage(
-                                                      widget.index + 1);
+                                                      widget.index);
                                                 },
                                               ));
                                             }
